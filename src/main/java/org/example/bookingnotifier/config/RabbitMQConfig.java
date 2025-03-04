@@ -1,5 +1,6 @@
 package org.example.bookingnotifier.config;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -10,8 +11,11 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
 
     public static final String QUEUE_NAME = "bookingQueue";
-    public static final String EXCHANGE_NAME = "bookingExchange";
-    public static final String ROUTING_KEY = "booking.notify";
+
+    @Bean
+    public Queue bookingQueue() {
+        return new Queue(QUEUE_NAME, true); // ✅ Durable queue
+    }
 
     @Bean
     public Jackson2JsonMessageConverter jsonMessageConverter() {
