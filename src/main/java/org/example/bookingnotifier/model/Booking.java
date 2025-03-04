@@ -11,11 +11,12 @@ public class Booking implements Serializable {
     private String userPrimaryEmail;
     private String startTime;
     private List<Attendee> attendees;
+    public static Integer untile =140;
 
-    // ✅ Default Constructor (Required for JSON Deserialization)
+    //  Default Constructor (Required for JSON Deserialization)
     public Booking() {}
 
-    // ✅ Parameterized Constructor (Fixes your test error)
+    // Parameterized Constructor (Fixes your test error)
     public Booking(int id, String title, String userPrimaryEmail, String startTime, List<Attendee> attendees) {
         this.id = id;
         this.title = title;
@@ -27,12 +28,13 @@ public class Booking implements Serializable {
     public <E> Booking(long l, String teamMeeting, List<E> attendee1) {
     }
 
-    // ✅ Getters
+    //  Getters
     public int getId() { return id; }
     public String getTitle() { return title; }
     public String getUserPrimaryEmail() { return userPrimaryEmail; }
     public String getStartTime() { return startTime; }
     public List<Attendee> getAttendees() { return attendees; }
+
 
     // ✅ Setters
     public void setId(int id) { this.id = id; }

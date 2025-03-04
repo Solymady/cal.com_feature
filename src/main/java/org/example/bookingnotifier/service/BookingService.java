@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Arrays;
 
+import static org.example.bookingnotifier.model.Booking.untile;
+
 @Service
 public class BookingService {
     private static final String API_URL = "https://api.cal.com/v2/bookings";
@@ -53,7 +55,7 @@ public class BookingService {
 
     public List<Booking> filterUpcomingBookings(List<Booking> bookings) {
         LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-        LocalDateTime targetTime = now.plusMinutes(15);
+        LocalDateTime targetTime = now.plusMinutes(untile);
 
         System.out.println("\n🔍 Checking bookings for events starting in 15 minutes");
         System.out.println("⏳ Current Time: " + now);
@@ -67,7 +69,7 @@ public class BookingService {
                     long minutesUntilStart = ChronoUnit.MINUTES.between(now, bookingTime);
 
                     // Allow small drift (-1 or +1 minute) to prevent test mismatches
-                    boolean isMatch = (minutesUntilStart >= 14 && minutesUntilStart <= 16);
+                    boolean isMatch = (minutesUntilStart >= untile-1 && minutesUntilStart <= untile+1);
 
                     System.out.println(" Booking ID: " + booking.getId() +
                             " | Start Time: " + booking.getStartTime() +

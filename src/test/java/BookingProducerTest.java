@@ -31,6 +31,7 @@ class BookingProducerTest {
 
         assertEquals(1, rabbitTemplate.getMessages().size());
         assertEquals(booking, rabbitTemplate.getMessages().get(0));
+
     }
 
     // Fake RabbitTemplate Implementation

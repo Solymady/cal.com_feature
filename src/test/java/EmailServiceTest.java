@@ -15,7 +15,7 @@ public class EmailServiceTest {
 
     @Test
     public void testSendEmail() throws Exception {
-        // Create a real MimeMessage instance instead of mocking
+        // Create a real MimeMessage
         MimeMessage mimeMessage = new MimeMessage((jakarta.mail.Session) null);
 
         when(mailSender.createMimeMessage()).thenReturn(mimeMessage);

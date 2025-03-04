@@ -16,7 +16,7 @@ public class BookingServiceTest {
     @Test
     public void testFilterUpcomingBookings() {
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime startTime = now.plusMinutes(15);
+        LocalDateTime startTime = now.plusMinutes(Booking.untile);
 
         Booking testBooking = new Booking(
                 12345, "Test Event", "testuser@gmail.com",
