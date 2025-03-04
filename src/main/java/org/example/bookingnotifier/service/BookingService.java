@@ -38,7 +38,7 @@ public class BookingService {
         // Deserialize the bookings
         List<Booking> bookings = Arrays.asList(objectMapper.treeToValue(bookingsNode, Booking[].class));
 
-        // ✅ Debug: Print fetched bookings
+        //  Debug: Print fetched bookings
         System.out.println("Fetched Bookings:");
         for (Booking booking : bookings) {
             System.out.println("Booking ID: " + booking.getId());

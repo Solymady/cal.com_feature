@@ -12,6 +12,7 @@ public class BookingServiceTest {
 
     private final BookingService bookingService = new BookingService();
 
+
     @Test
     public void testFilterUpcomingBookings() {
         LocalDateTime now = LocalDateTime.now();

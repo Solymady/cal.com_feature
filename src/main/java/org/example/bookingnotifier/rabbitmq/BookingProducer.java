@@ -15,6 +15,6 @@ public class BookingProducer {
 
     public void sendBookingNotification(Booking booking) {
         System.out.println("📤 Sending booking notification to RabbitMQ: " + booking.getId());
-        rabbitTemplate.convertAndSend("bookingExchange", "booking.notify", booking); // ✅ Now Booking is converted to JSON
+        rabbitTemplate.convertAndSend("bookingExchange", "booking.notify", booking);
     }
 }

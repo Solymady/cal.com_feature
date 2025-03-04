@@ -14,7 +14,7 @@ public class BookingConsumer {
         this.emailService = emailService;
     }
 
-    @RabbitListener(queues = "bookingQueue") // ✅ Automatically converts JSON to Booking
+    @RabbitListener(queues = "bookingQueue") // Automatically converts JSON to Booking
     public void receiveBookingNotification(Booking booking) {
         System.out.println("📥 Received Booking Notification for ID: " + booking.getId());
 

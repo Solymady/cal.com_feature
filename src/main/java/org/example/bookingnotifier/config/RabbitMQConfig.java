@@ -15,13 +15,13 @@ public class RabbitMQConfig {
 
     @Bean
     public Jackson2JsonMessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter(); // ✅ Converts objects to JSON
+        return new Jackson2JsonMessageConverter();
     }
 
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
-        template.setMessageConverter(jsonMessageConverter()); // ✅ Set JSON converter
+        template.setMessageConverter(jsonMessageConverter());
         return template;
     }
 }

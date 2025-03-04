@@ -1,12 +1,12 @@
-name: Run Tests Only
+name: Run Tests
 
 on:
   push:
     branches:
-      - main  # Runs tests only on push to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Runs tests when a PR is created
+      - main
 
 jobs:
   test:
